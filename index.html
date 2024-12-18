@@ -1,0 +1,606 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="style.css">
+
+    <title>portfolio</title> 
+
+</head> 
+
+<body> 
+
+     
+
+<style> 
+
+    .portfolio-container { 
+
+      background-color: rgba(23, 48, 88, 1); 
+
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); 
+
+      display: flex; 
+
+      flex-direction: column; 
+
+      overflow: hidden; 
+
+      padding: 0 61px 55px 0; 
+
+      border: 1px solid rgba(0, 0, 0, 1); 
+
+    } 
+
+     
+
+    .header-wrapper { 
+
+      display: flex; 
+
+      width: 100%; 
+
+      flex-wrap: wrap; 
+
+    } 
+
+     
+
+    .nav-container { 
+
+      background-color: transparent; 
+
+      display: flex; 
+
+      align-items: center; 
+
+      gap: 24px 7px; 
+
+      overflow: hidden; 
+
+      justify-content: space-between; 
+
+      flex-wrap: wrap; 
+
+      flex-grow: 1; 
+
+      flex-basis: auto; 
+
+      padding: 20px; 
+
+    } 
+
+     
+
+    .logo-wrapper { 
+
+      align-self: stretch; 
+
+      display: flex; 
+
+      flex-direction: column; 
+
+      justify-content: center; 
+
+      width: 92px; 
+
+      margin: auto 0; 
+
+      padding: 10px; 
+
+    } 
+
+     
+
+    .logo-image { 
+
+      aspect-ratio: 1.33; 
+
+      object-fit: contain; 
+
+      object-position: center; 
+
+      width: 72px; 
+
+      border-radius: 50%; 
+
+    } 
+
+     
+
+    .header-title { 
+
+      align-self: stretch; 
+
+      min-width: 240px; 
+
+      gap: 10px; 
+
+      flex-wrap: wrap; 
+
+      width: 392px; 
+
+      margin: auto 0; 
+
+      padding: 10px; 
+
+    } 
+
+     
+
+    .title-roboto { 
+
+      font: 400 32px Roboto Serif, sans-serif; 
+
+      color: rgba(241, 234, 226, 1); 
+
+    } 
+
+     
+
+    .title-playfair { 
+
+      font: 400 32px Playfair Display, sans-serif; 
+
+      color: rgba(241, 234, 226, 1); 
+
+    } 
+
+     
+
+    .nav-menu { 
+
+      border-radius: 5px; 
+
+      display: flex; 
+
+      flex-direction: column; 
+
+      overflow: hidden; 
+
+      justify-content: center; 
+
+      flex-grow: 1; 
+
+      flex-basis: 0; 
+
+      width: fit-content; 
+
+      margin: auto 0; 
+
+      padding: 16px 20px; 
+
+    } 
+
+     
+
+    .menu-items { 
+
+      display: flex; 
+
+      width: 100%; 
+
+      align-items: start; 
+
+      gap: 16px 7px; 
+
+      overflow: hidden; 
+
+      justify-content: space-between; 
+
+      flex-wrap: wrap; 
+
+    } 
+
+     
+
+    .menu-link { 
+
+      color: rgba(241, 234, 226, 1); 
+
+      font: 400 24px Roboto Serif, sans-serif; 
+
+    } 
+
+     
+
+    .main-content { 
+
+      background-color: transparent; 
+
+      align-self: end; 
+
+      display: flex; 
+
+      margin-top: 33px; 
+
+      min-height: 343px; 
+
+      width: 100%; 
+
+      max-width: 943px; 
+
+      align-items: start; 
+
+      gap: 10px; 
+
+      overflow: hidden; 
+
+      justify-content: start; 
+
+      flex-wrap: wrap; 
+
+      padding: 20px 20px 54px; 
+
+    } 
+
+     
+
+    .intro-card { 
+
+      display: flex; 
+
+      min-width: 240px; 
+
+      width: 717px; 
+
+      align-items: center; 
+
+      gap: 10px; 
+
+      overflow: hidden; 
+
+      justify-content: center; 
+
+      flex-wrap: wrap; 
+
+      flex-grow: 1; 
+
+    } 
+
+     
+
+    .intro-wrapper { 
+
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); 
+
+      align-self: stretch; 
+
+      display: flex; 
+
+      min-width: 240px; 
+
+      width: 714px; 
+
+      align-items: center; 
+
+      overflow: hidden; 
+
+      justify-content: space-between; 
+
+      flex-wrap: wrap; 
+
+      flex-grow: 1; 
+
+      margin: auto 0; 
+
+    } 
+
+     
+
+    .intro-image-wrapper { 
+
+      align-self: stretch; 
+
+      display: flex; 
+
+      min-width: 240px; 
+
+      flex-direction: column; 
+
+      justify-content: center; 
+
+      width: 298px; 
+
+      margin: auto 0; 
+
+      padding: 10px 0 10px 10px; 
+
+    } 
+
+     
+
+    .intro-image { 
+
+      aspect-ratio: 2.85; 
+
+      object-fit: contain; 
+
+      object-position: center; 
+
+      width: 288px; 
+
+      max-width: 100%; 
+
+    } 
+
+     
+
+    .intro-text { 
+
+      align-self: stretch; 
+
+      width: 594px; 
+
+      background-color: rgba(237, 217, 193, 1); 
+
+      min-width: 240px; 
+
+      min-height: 100px; 
+
+      gap: 10px; 
+
+      overflow: hidden; 
+
+      color: rgba(23, 48, 88, 1); 
+
+      margin: auto 0; 
+
+      padding: 13px 19px; 
+
+      font: 400 32px Roboto Serif, sans-serif; 
+
+    } 
+
+     
+
+    .profile-card { 
+
+      background-color: transparent; 
+
+      display: flex; 
+
+      min-width: 240px; 
+
+      align-items: start; 
+
+      gap: 10px; 
+
+      overflow: hidden; 
+
+      color: rgba(23, 48, 88, 1); 
+
+      white-space: nowrap; 
+
+      justify-content: start; 
+
+      flex-wrap: wrap; 
+
+      flex-grow: 1; 
+
+      width: 701px; 
+
+      padding: 20px; 
+
+      font: 400 32px Roboto Serif, sans-serif; 
+
+    } 
+
+     
+
+    .profile-content { 
+
+      background-color: rgba(237, 217, 193, 1); 
+
+      display: flex; 
+
+      min-width: 240px; 
+
+      width: 669px; 
+
+      align-items: center; 
+
+      gap: 40px 111px; 
+
+      overflow: hidden; 
+
+      justify-content: start; 
+
+      flex-grow: 1; 
+
+    } 
+
+     
+
+    .profile-text { 
+
+      align-self: stretch; 
+
+      width: 152px; 
+
+      margin: auto 0; 
+
+    } 
+
+     
+
+    .project-text { 
+
+      align-self: stretch; 
+
+      width: 167px; 
+
+      margin: auto 0; 
+
+    } 
+
+     
+
+    .profile-image { 
+
+      aspect-ratio: 3.58; 
+
+      object-fit: contain; 
+
+      object-position: center; 
+
+      width: 351px; 
+
+      align-self: stretch; 
+
+      min-width: 240px; 
+
+      margin: auto 0; 
+
+    } 
+
+     
+
+    @media (max-width: 991px) { 
+
+      .portfolio-container { 
+
+        padding-right: 20px; 
+
+      } 
+
+       
+
+      .header-wrapper, 
+
+      .nav-container, 
+
+      .nav-menu, 
+
+      .menu-items, 
+
+      .main-content, 
+
+      .intro-card, 
+
+      .intro-wrapper, 
+
+      .intro-text, 
+
+      .profile-card { 
+
+        max-width: 100%; 
+
+      } 
+
+       
+
+      .main-content { 
+
+        margin-right: 2px; 
+
+      } 
+
+       
+
+      .profile-content { 
+
+        white-space: initial; 
+
+      } 
+
+       
+
+      .profile-card { 
+
+        white-space: initial; 
+
+      } 
+
+    } 
+
+    </style> 
+
+     
+
+    <div class="portfolio-container"> 
+
+      <div class="header-wrapper"> 
+
+        <nav class="nav-container"> 
+
+          <div class="logo-wrapper"> 
+
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/a4332ce4b0ec0762725961d44918d3df679928fa3ae84af0acf0753ffc4a8050?placeholderIfAbsent=true&apiKey=9deed3e0b9624583ab40414cf45d8be8" class="logo-image" alt="Portfolio Logo" /> 
+
+          </div> 
+
+          <div class="header-title"> 
+
+            <span class="title-roboto">Carrara Hugo</span> 
+
+            / 
+
+            <span class="title-playfair">Portfolio</span> 
+
+          </div> 
+
+        </nav> 
+
+        <div class="nav-menu"> 
+
+          <div class="menu-items"> 
+
+            <a href="#contact" class="menu-link">CONTACT</a> 
+
+            <a href="#about" class="menu-link">ABOUT ME</a> 
+
+            <a href="#portfolio" class="menu-link">PORTFOLIO</a> 
+
+          </div> 
+
+        </div> 
+
+      </div> 
+
+      <main class="main-content"> 
+
+        <section class="intro-card"> 
+
+          <div class="intro-wrapper"> 
+
+            <div class="intro-image-wrapper"> 
+
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/a2414e42eeb68b26b4f1aee426ff75cb1265b94a1dd0b4ae24f330760d2da013?placeholderIfAbsent=true&apiKey=9deed3e0b9624583ab40414cf45d8be8" class="intro-image" alt="Introduction Visual" /> 
+
+            </div> 
+
+            <p class="intro-text">Je suis étudiant à corte en BUT MMI</p> 
+
+          </div> 
+
+        </section> 
+
+        <section class="profile-card"> 
+
+          <div class="profile-content"> 
+
+            <h2 class="profile-text">PROFILE</h2> 
+
+            <h2 class="project-text">PROJECT</h2> 
+
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/7ac5ebb94135ed24170358ff61240b0a4841430309a79819f37ce5974cf8c656?placeholderIfAbsent=true&apiKey=9deed3e0b9624583ab40414cf45d8be8" class="profile-image" alt="Profile Project Showcase" /> 
+
+          </div> 
+
+        </section> 
+
+      </main> 
+
+    </div> 
+
+</body> 
+
+</html> 
