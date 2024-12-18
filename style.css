@@ -280,7 +280,7 @@
 
     display: flex; 
 
-    min-width: 240px; 
+    min-width: 270px; 
 
     flex-direction: column; 
 
@@ -288,9 +288,9 @@
 
     width: 298px; 
 
-    margin: auto 0; 
+    margin: auto -19; 
 
-    padding: 10px 0 10px 10px; 
+    padding: 0px 0 0px 0px; 
 
   } 
 
@@ -322,7 +322,7 @@
 
     min-width: 240px; 
 
-    min-height: 100px; 
+    min-height: 78px; 
 
     gap: 10px; 
 
