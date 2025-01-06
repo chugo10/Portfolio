@@ -192,7 +192,7 @@
 
     background-color: transparent; 
 
-    align-self: end; 
+    align-self:center; 
 
     display: flex; 
 
@@ -404,6 +404,11 @@
 
   } 
 
+  .profile-text:hover {
+      text-decoration: underline;
+
+  }
+
    
 
   .project-text { 
@@ -415,6 +420,10 @@
     margin: auto 0; 
 
   } 
+
+  .project-text:hover {
+      text-decoration: underline;
+  }
 
    
 
