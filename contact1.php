@@ -1,9 +1,22 @@
+<?php
+    // connect to the database to get the PDO instance
+    $pdo = require 'include/connect.php';
+
+    $sql = 'SELECT * FROM home,navbar,contact';
+    $statement = $pdo->query($sql);
+    $user_data = $statement->fetch(PDO::FETCH_ASSOC);
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.php">
+    <link rel="stylesheet" href="contact1.php">
+
     <title>contact</title>
 </head>
 <body>
@@ -340,15 +353,15 @@
 
       <div class="header-wrapper"> 
 
-        <img class="logo" src="https://cdn.builder.io/api/v1/image/assets/TEMP/fb7c34fac3b61f4f040555eb96ee0304831387e094be98918fe2bd330c6e252e?placeholderIfAbsent=true&apiKey=9deed3e0b9624583ab40414cf45d8be8" alt="Company Logo" /> 
+        <img class="logo" src="<?=$user_data['logo']?>" alt="Company Logo" /> 
 
         <div class="brand-title"> 
 
-          <span class="brand-name">Carrara Hugo</span> 
+          <span class="brand-name"><?=$user_data['title']?></span> 
 
           / 
 
-          <span class="brand-type">Portfolio</span> 
+          <span class="brand-type"><?=$user_data['title2']?></span> 
 
         </div> 
 
@@ -356,11 +369,11 @@
 
           <div class="nav-links"> 
 
-            <a href="contact1.html" class="nav-link" tabindex="0">CONTACT</a> 
+            <a href="contact1.php" class="nav-link" tabindex="0"><?=$user_data['lien1']?></a> 
 
-            <a href="contact.html" class="nav-link" tabindex="0">ABOUT ME</a> 
+            <a href="contact.php" class="nav-link" tabindex="0"><?=$user_data['lien2']?></a> 
 
-            <a href="#portfolio" class="nav-link" tabindex="0">PORTFOLIO</a> 
+            <a href="#portfolio" class="nav-link" tabindex="0"><?=$user_data['lien3']?></a> 
 
           </div> 
 
@@ -376,13 +389,13 @@
 
           <div class="input-group"> 
 
-            <label for="name" class="visually-hidden">NOM</label> 
+            <label for="name" class="visually-hidden"> <?=$user_data['nom']?></label> 
 
-            <input type="text" id="name" class="form-field" placeholder="NOM" /> 
+            <input type="text" id="name" class="form-field" placeholder="<?=$user_data['nom']?>" /> 
 
-            <label for="message" class="visually-hidden">Message</label> 
+            <label for="message" class="visually-hidden">" <?=$user_data['message']?>"</label> 
 
-            <textarea id="message" class="form-field" placeholder="Entrez votre message"></textarea> 
+            <textarea id="message" class="form-field" placeholder=" <?=$user_data['message']?>"></textarea> 
 
           </div> 
 
@@ -392,19 +405,19 @@
 
          
 
-        <label for="email" class="visually-hidden">Email</label> 
+        <label for="email" class="visually-hidden"> <?=$user_data['email']?></label> 
 
         <input type="email" id="email" class="form-field" placeholder="Email" /> 
 
          
 
-        <label for="number" class="visually-hidden">Numéro</label> 
+        <label for="number" class="visually-hidden"> <?=$user_data['numero']?></label> 
 
         <input type="tel" id="number" class="form-field" placeholder="n°" /> 
 
          
 
-        <button type="submit" class="submit-btn">Envoyer</button> 
+        <button type="submit" class="submit-btn"> <?=$user_data['envoyer']?></button> 
 
       </form> 
 
@@ -412,4 +425,5 @@
 </body>
 </html> 
 
+ 
  
