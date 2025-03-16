@@ -1,3 +1,11 @@
+<?php
+    // connect to the database to get the PDO instance
+    $pdo = require 'include/connect.php';
+
+    $sql = 'SELECT * FROM home,navbar,main';
+    $statement = $pdo->query($sql);
+    $user_data = $statement->fetch(PDO::FETCH_ASSOC);
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -373,23 +381,23 @@
 
     <div class="header-wrapper"> 
 
-      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/fb7c34fac3b61f4f040555eb96ee0304831387e094be98918fe2bd330c6e252e?placeholderIfAbsent=true&apiKey=9deed3e0b9624583ab40414cf45d8be8" class="logo" alt="Portfolio logo" /> 
+      <img loading="lazy" src="<?=$user_data['logo']?>" class="logo" alt="Portfolio logo" /> 
 
       <div class="title-text"> 
 
-        <span class="title-roboto">Carrara Hugo</span> / 
+        <span class="title-roboto"><?=$user_data['title']?></span> / 
 
-        <span class="title-playfair">Portfolio</span> 
+        <span class="title-playfair"><?=$user_data['title2']?></span> 
 
       </div> 
 
       <nav class="nav-menu" role="navigation"> 
 
-        <div class="nav-contact" tabindex="0">CONTACT</div> 
+        <div class="nav-contact" tabindex="0"><?=$user_data['lien1']?></div> 
 
-        <div class="nav-about" tabindex="0">ABOUT ME</div> 
+        <div class="nav-about" tabindex="0"><?=$user_data['lien2']?></div> 
 
-        <div class="nav-portfolio" tabindex="0">PORTFOLIO</div> 
+        <div class="nav-portfolio" tabindex="0"><?=$user_data['lien3']?></div> 
 
       </nav> 
 
@@ -405,7 +413,7 @@
 
             <div class="moon-image-wrapper"> 
 
-              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/772709a446047d3f8866590e3056d5701c9387c799df7f55dcbb6711dacd02c3?placeholderIfAbsent=true&apiKey=9deed3e0b9624583ab40414cf45d8be8" class="moon-image" alt="Moon landscape illustration" /> 
+              <img loading="lazy" src="<?=$user_data['image1gauche']?>" class="moon-image" alt="Moon landscape illustration" /> 
 
             </div> 
 
@@ -413,7 +421,7 @@
 
           <div class="text-column"> 
 
-            <div class="greeting-text">Bonjour...</div> 
+            <div class="greeting-text"><?=$user_data['text']?></div> 
 
           </div> 
 
@@ -423,7 +431,7 @@
 
       <div class="sea-image-wrapper"> 
 
-        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/72611961d450917f4a240ee3125ecf4fafbb8f5891b60a19441f50bf0bd971e9?placeholderIfAbsent=true&apiKey=9deed3e0b9624583ab40414cf45d8be8" class="sea-image" alt="Sea landscape view" /> 
+        <img loading="lazy" src="<?=$user_data['image2droite']?>" class="sea-image" alt="Sea landscape view" /> 
 
       </div> 
 
