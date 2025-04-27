@@ -1,15 +1,55 @@
 <?php
-    // connect to the database to get the PDO instance
-    $pdo = require 'include/connect.php';
+    require_once 'models/homeModel.php';
+    require_once 'controller/homeController.php';
+    require_once 'models/navbarmodel.php';
+    require_once 'controller/navbarcontroller.php';
+    require_once 'models/bandemodel.php';
+    require_once 'controller/bandecontroller.php';
+    require_once 'models/contact1model.php';
+    require_once 'controller/contact1controller.php';
+    require_once 'models/contactmodel.php';
+    require_once 'controller/contactcontroller.php';
 
-    $sql = 'SELECT * FROM home,navbar,bande';
-    $statement = $pdo->query($sql);
-    $user_data = $statement->fetch(PDO::FETCH_ASSOC);
+    $pdo = require 'models/connect.php';
+    // execute a query home
+    $homeModel = new HomeModel($pdo);
+    $homeController = new HomeController($homeModel);
+    $title = $homeController->getTitle();
+    $title2 = $homeController->getTitle2();
+    $subtitle = $homeController->getSubtitle();
+    $logo = $homeController->getLogo();
+
+    $navbarmodel = new navbarmodel($pdo);
+    $navbarcontroller = new navbarcontroller($navbarmodel);
+    $lien1 = $navbarcontroller->getLien1();
+    $lien2 = $navbarcontroller->getLien2();
+    $lien3 = $navbarcontroller->getLien3();
+
+    $bandemodel = new bandemodel($pdo);
+    $bandecontroller = new bandecontroller($bandemodel);
+    $bande2text1 = $bandecontroller->getBande2text1();
+    $bande2text2 = $bandecontroller->getBande2text2();
+    $imagebande1 = $bandecontroller->getimagebande1();
+    $imagebande2 = $bandecontroller->getimagebande2();
+
+    $contact1model = new contact1model($pdo);
+    $contact1controller = new contact1controller($contact1model);
+    $nom = $contact1controller->getNom();
+    $message = $contact1controller->getmessage();
+    $email = $contact1controller->getemail();
+    $numero = $contact1controller->getnumero();
+    $envoyer = $contact1controller->getenvoyer();
+
+    $contactmodel = new contactmodel($pdo);
+    $contactcontroller = new contactcontroller($contactmodel);
+    $image1gauche = $contactcontroller->getimage1gauche();
+    $text = $contactcontroller->gettext();
+    $image2droite = $contactcontroller->getimage2droite();
 ?> 
 
 <!DOCTYPE html> 
 
-<html lang="en"> 
+<html lang="fr-FR"> 
 
 <head> 
 
@@ -43,17 +83,14 @@
 
           <div class="logo-wrapper"> 
 
-            <img loading="lazy" src="<?=$user_data['logo']?>" class="logo-image" alt="Portfolio Logo" /> 
+            <img loading="lazy" src="<?=$logo?>" class="logo-image" alt="Portfolio Logo" /> 
 
           </div> 
 
           <div class="header-title"> 
 
-            <span class="title-roboto"> <?=$user_data['title']?></span> 
+            <span class="title-roboto"> <?=$title?></span> 
 
-            / 
-
-            <span class="title-playfair"><?=$user_data['title2']?></span>
      
 
           </div>
@@ -61,11 +98,11 @@
 
             <div class="menu-items"> 
   
-              <a href="contact1.html" class="menu-link"><?=$user_data['lien1']?></a> 
+              <a href="contact1.php" class="menu-link"><?=$lien1?></a> 
   
-              <a href="contact.html" class="menu-link"><?=$user_data['lien2']?></a> 
+              <a href="contact.php" class="menu-link"><?=$lien2?></a> 
   
-              <a href="#portfolio" class="menu-link"><?=$user_data['lien3']?></a> 
+              <a href="#portfolio" class="menu-link"><?=$lien3?></a> 
   
             </div> 
   
@@ -85,11 +122,11 @@
 
             <div class="intro-image-wrapper"> 
 
-              <img loading="lazy" src="<?=$user_data['imagebande1']?>" class="intro-image" alt="Introduction Visual" /> 
+              <img loading="lazy" src="<?=$imagebande1?>" class="intro-image" alt="Introduction Visual" /> 
 
             </div> 
 
-            <p class="intro-text"><?=$user_data['subtitle']?></p> 
+            <p class="intro-text"><?=$subtitle?></p> 
 
           </div> 
 
@@ -99,11 +136,17 @@
 
           <div class="profile-content"> 
 
-            <h2 class="profile-text"><?=$user_data['bande2text1']?></h2> 
+            <h1 class="profile-text"><?=$bande2text1?></h2>
+            
+            <nav>
+                <a href="profile.php" class="profile-text">PROFILE</a>
+                <a href="project.php" class="project-text">PROJECT</a>
+            </nav>
 
-            <h2 class="project-text"><?=$user_data['bande2text2']?></h2> 
 
-            <img loading="lazy" src="<?=$user_data['imagebande2']?>" class="profile-image" alt="Profile Project Showcase" /> 
+            <h1 class="project-text"><?=$bande2text2?></h2> 
+
+            <img loading="lazy" src="<?=$imagebande2?>" class="profile-image" alt="Profile Project Showcase" /> 
 
           </div> 
 
@@ -116,3 +159,4 @@
 </body> 
 
 </html> 
+
