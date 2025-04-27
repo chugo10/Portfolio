@@ -1,11 +1,51 @@
 <?php
-    // connect to the database to get the PDO instance
-    $pdo = require 'include/connect.php';
+    require_once 'models/homeModel.php';
+    require_once 'controller/homeController.php';
+    require_once 'models/navbarmodel.php';
+    require_once 'controller/navbarcontroller.php';
+    require_once 'models/bandemodel.php';
+    require_once 'controller/bandecontroller.php';
+    require_once 'models/contact1model.php';
+    require_once 'controller/contact1controller.php';
+    require_once 'models/contactmodel.php';
+    require_once 'controller/contactcontroller.php';
 
-    $sql = 'SELECT * FROM home,navbar,main';
-    $statement = $pdo->query($sql);
-    $user_data = $statement->fetch(PDO::FETCH_ASSOC);
-?> 
+    $pdo = require 'models/connect.php';
+    // execute a query home
+    $homeModel = new HomeModel($pdo);
+    $homeController = new HomeController($homeModel);
+    $title = $homeController->getTitle();
+    $title2 = $homeController->getTitle2();
+    $subtitle = $homeController->getSubtitle();
+    $logo = $homeController->getLogo();
+
+    $navbarmodel = new navbarmodel($pdo);
+    $navbarcontroller = new navbarcontroller($navbarmodel);
+    $lien1 = $navbarcontroller->getLien1();
+    $lien2 = $navbarcontroller->getLien2();
+    $lien3 = $navbarcontroller->getLien3();
+
+    $bandemodel = new bandemodel($pdo);
+    $bandecontroller = new bandecontroller($bandemodel);
+    $bande2text1 = $bandecontroller->getBande2text1();
+    $bande2text2 = $bandecontroller->getBande2text2();
+    $imagebande1 = $bandecontroller->getimagebande1();
+    $imagebande2 = $bandecontroller->getimagebande2();
+
+    $contact1model = new contact1model($pdo);
+    $contact1controller = new contact1controller($contact1model);
+    $nom = $contact1controller->getNom();
+    $message = $contact1controller->getmessage();
+    $email = $contact1controller->getemail();
+    $numero = $contact1controller->getnumero();
+    $envoyer = $contact1controller->getenvoyer();
+
+    $contactmodel = new contactmodel($pdo);
+    $contactcontroller = new contactcontroller($contactmodel);
+    $image1gauche = $contactcontroller->getimage1gauche();
+    $text = $contactcontroller->gettext();
+    $image2droite = $contactcontroller->getimage2droite();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,9 +141,11 @@
 
       color: rgba(239, 230, 222, 1); 
 
-      width: 125px; 
+      width: 125px;
+       
 
-    } 
+    }
+     
 
     .nav-about { 
 
@@ -381,23 +423,24 @@
 
     <div class="header-wrapper"> 
 
-      <img loading="lazy" src="<?=$user_data['logo']?>" class="logo" alt="Portfolio logo" /> 
+      <img loading="lazy" src="<?=$logo?>" class="logo" alt="Portfolio logo" /> 
 
       <div class="title-text"> 
 
-        <span class="title-roboto"><?=$user_data['title']?></span> / 
+        <span class="title-roboto"><?=$title?></span> / 
 
-        <span class="title-playfair"><?=$user_data['title2']?></span> 
+        <span class="title-playfair"><?=$title2?></span> 
 
       </div> 
 
       <nav class="nav-menu" role="navigation"> 
 
-        <div class="nav-contact" tabindex="0"><?=$user_data['lien1']?></div> 
 
-        <div class="nav-about" tabindex="0"><?=$user_data['lien2']?></div> 
+        <a href="contact1.php" class="nav-link" tabindex="0"><?=$lien1?></a> 
 
-        <div class="nav-portfolio" tabindex="0"><?=$user_data['lien3']?></div> 
+            <a href="contact.php" class="nav-link" tabindex="0"><?=$lien2?></a> 
+
+            <a href="index.php" class="nav-link" tabindex="0"><?=$lien3?></a> 
 
       </nav> 
 
@@ -413,7 +456,7 @@
 
             <div class="moon-image-wrapper"> 
 
-              <img loading="lazy" src="<?=$user_data['image1gauche']?>" class="moon-image" alt="Moon landscape illustration" /> 
+              <img loading="lazy" src="<?=$image1gauche?>" class="moon-image" alt="Moon landscape illustration" /> 
 
             </div> 
 
@@ -421,7 +464,7 @@
 
           <div class="text-column"> 
 
-            <div class="greeting-text"><?=$user_data['text']?></div> 
+            <div class="greeting-text"><?=$text?></div> 
 
           </div> 
 
@@ -431,7 +474,7 @@
 
       <div class="sea-image-wrapper"> 
 
-        <img loading="lazy" src="<?=$user_data['image2droite']?>" class="sea-image" alt="Sea landscape view" /> 
+        <img loading="lazy" src="<?=$image2droite?>" class="sea-image" alt="Sea landscape view" /> 
 
       </div> 
 
