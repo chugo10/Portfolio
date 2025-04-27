@@ -1,10 +1,42 @@
 <?php
-    // connect to the database to get the PDO instance
-    $pdo = require 'include/connect.php';
+    require_once 'models/homeModel.php';
+    require_once 'controller/homeController.php';
+    require_once 'models/navbarmodel.php';
+    require_once 'controller/navbarcontroller.php';
+    require_once 'models/bandemodel.php';
+    require_once 'controller/bandecontroller.php';
+    require_once 'models/contact1model.php';
+    require_once 'controller/contact1controller.php';
 
-    $sql = 'SELECT * FROM home,navbar,contact';
-    $statement = $pdo->query($sql);
-    $user_data = $statement->fetch(PDO::FETCH_ASSOC);
+    $pdo = require 'models/connect.php';
+    // execute a query home
+    $homeModel = new HomeModel($pdo);
+    $homeController = new HomeController($homeModel);
+    $title = $homeController->getTitle();
+    $title2 = $homeController->getTitle2();
+    $subtitle = $homeController->getSubtitle();
+    $logo = $homeController->getLogo();
+
+    $navbarmodel = new navbarmodel($pdo);
+    $navbarcontroller = new navbarcontroller($navbarmodel);
+    $lien1 = $navbarcontroller->getLien1();
+    $lien2 = $navbarcontroller->getLien2();
+    $lien3 = $navbarcontroller->getLien3();
+
+    $bandemodel = new bandemodel($pdo);
+    $bandecontroller = new bandecontroller($bandemodel);
+    $bande2text1 = $bandecontroller->getBande2text1();
+    $bande2text2 = $bandecontroller->getBande2text2();
+    $imagebande1 = $bandecontroller->getimagebande1();
+    $imagebande2 = $bandecontroller->getimagebande2();
+
+    $contact1model = new contact1model($pdo);
+    $contact1controller = new contact1controller($contact1model);
+    $nom = $contact1controller->getNom();
+    $message = $contact1controller->getmessage();
+    $email = $contact1controller->getemail();
+    $numero = $contact1controller->getnumero();
+    $envoyer = $contact1controller->getenvoyer();
 ?> 
 
 <!DOCTYPE html>
@@ -16,6 +48,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="contact.php">
     <link rel="stylesheet" href="contact1.php">
+    <link rel="stylesheet" href="index.php">
 
     <title>contact</title>
 </head>
@@ -353,15 +386,15 @@
 
       <div class="header-wrapper"> 
 
-        <img class="logo" src="<?=$user_data['logo']?>" alt="Company Logo" /> 
+        <img class="logo" src="<?=$logo?>" alt="Company Logo" /> 
 
         <div class="brand-title"> 
 
-          <span class="brand-name"><?=$user_data['title']?></span> 
+          <span class="brand-name"><?=$title?></span> 
 
           / 
 
-          <span class="brand-type"><?=$user_data['title2']?></span> 
+          <span class="brand-type"><?=$title2?></span> 
 
         </div> 
 
@@ -369,11 +402,11 @@
 
           <div class="nav-links"> 
 
-            <a href="contact1.php" class="nav-link" tabindex="0"><?=$user_data['lien1']?></a> 
+            <a href="contact1.php" class="nav-link" tabindex="0"><?=$lien1?></a> 
 
-            <a href="contact.php" class="nav-link" tabindex="0"><?=$user_data['lien2']?></a> 
+            <a href="contact.php" class="nav-link" tabindex="0"><?=$lien2?></a> 
 
-            <a href="#portfolio" class="nav-link" tabindex="0"><?=$user_data['lien3']?></a> 
+            <a href="index.php" class="nav-link" tabindex="0"><?=$lien3?></a> 
 
           </div> 
 
@@ -389,13 +422,13 @@
 
           <div class="input-group"> 
 
-            <label for="name" class="visually-hidden"> <?=$user_data['nom']?></label> 
+            <label for="name" class="visually-hidden"> <?=$nom?></label> 
 
-            <input type="text" id="name" class="form-field" placeholder="<?=$user_data['nom']?>" /> 
+            <input type="text" id="name" class="form-field" placeholder="<?=$nom?>" /> 
 
-            <label for="message" class="visually-hidden">" <?=$user_data['message']?>"</label> 
+            <label for="message" class="visually-hidden">" <?=$message?>"</label> 
 
-            <textarea id="message" class="form-field" placeholder=" <?=$user_data['message']?>"></textarea> 
+            <textarea id="message" class="form-field" placeholder=" <?=$message?>"></textarea> 
 
           </div> 
 
@@ -405,19 +438,19 @@
 
          
 
-        <label for="email" class="visually-hidden"> <?=$user_data['email']?></label> 
+        <label for="email" class="visually-hidden"> <?=$email?></label> 
 
         <input type="email" id="email" class="form-field" placeholder="Email" /> 
 
          
 
-        <label for="number" class="visually-hidden"> <?=$user_data['numero']?></label> 
+        <label for="number" class="visually-hidden"> <?=$numero?></label> 
 
         <input type="tel" id="number" class="form-field" placeholder="n°" /> 
 
          
 
-        <button type="submit" class="submit-btn"> <?=$user_data['envoyer']?></button> 
+        <button type="submit" class="submit-btn"> <?=$envoyer?></button> 
 
       </form> 
 
