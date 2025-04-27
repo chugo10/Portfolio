@@ -182,7 +182,11 @@
 
     color: rgba(241, 234, 226, 1); 
 
-    font: 400 24px Roboto Serif, sans-serif; 
+    font: 400 24px Roboto Serif, sans-serif;
+    
+    min-width: 44px;
+
+    min-height: 44px;
 
   } 
 
@@ -202,7 +206,7 @@
 
     width: 100%; 
 
-    max-width: 943px; 
+    max-width: 1400px; 
 
     align-items: start; 
 
@@ -318,8 +322,6 @@
 
     min-width: 240px; 
 
-    min-height: 80px; 
-
     gap: 10px; 
 
     overflow: hidden; 
@@ -328,9 +330,13 @@
 
     margin: auto 0; 
 
-    padding: 10px 0px; 
+    padding: 33px 110px; 
 
-    font: 400 32px Roboto Serif, sans-serif; 
+    font: 400 32px Roboto Serif, sans-serif;
+    
+    font-size: 150%;
+
+    line-height: 1.5;
 
   } 
 
@@ -400,7 +406,10 @@
 
     width: 152px; 
 
-    margin: auto 0; 
+    margin: auto 0;
+    
+    padding-top: 4px;
+    padding-bottom: 4px;
 
   } 
 
@@ -417,7 +426,11 @@
 
     width: 167px; 
 
-    margin: auto 0; 
+    margin: auto 0;
+    
+    padding-top: 4px;
+    padding-bottom: 4px;
+
 
   } 
 
@@ -441,7 +454,8 @@
 
     margin: auto 0; 
 
-  } 
+  }
+  
 
    
 
